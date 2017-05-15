@@ -1,0 +1,93 @@
+<div class="container-fluid body-home">
+    <div class="row ">
+        <div class="col-sm-7">
+            <div class="jumbotron">
+                <h1>Book Reaper</h1>
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <p>Search Books</p>
+                        </div>
+                        <div class="item">
+                            <p>Buy Books</p>
+                        </div>
+                        <div class="item">
+                            <p>Read Books</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                {{#if errors}}
+                    {{#each errors}}
+                        <div class="alert alert-danger" style="display: inline">{{msg}}</div>
+                    {{/each}}
+                {{/if}}
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active cus-font-home"><a href="#login" aria-controls="home" role="tab" data-toggle="tab">Login</a></li>
+                    <li role="presentation" class="cus-font-home"><a href="#register" aria-controls="profile" role="tab" data-toggle="tab">SignUp</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="login">
+
+                        <form method="post" action="/login">
+                            <div class="form-group">
+                                <label for ="username">
+                                <input type="text" class="form-control" id="username"name="username" placeholder="Username">
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for ="password">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="register">
+                        {{#if errors}}
+                            {{#each errors}}
+                                <div class="alert alert-danger">{{msg}}</div>
+                            {{/each}}
+                        {{/if}}
+                        <form method="post" action="/register">
+                            <div class="form-group">
+                                <label for = "name">
+                                <input type="text" class="form-control" placeholder="Name" id="name" name="name">
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for = "uname">
+                                <input type="text" class="form-control" placeholder="Username" id="uname" name="username">
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for ="email">
+                                <input type="email" class="form-control" placeholder="Email" id="email" name="email">
+                                </label>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for ="password1">
+                                <input type="password" class="form-control" placeholder="Password" id="password1" name="password">
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for ="password2">
+                                <input type="password" class="form-control" placeholder="Confirm Password" id="password2" name="password2">
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+    </div>
+</div>
